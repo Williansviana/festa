@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Presença - Aniversário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7e7ce;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ff6347;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #e55342;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="enviar" action="https://formcarry.com/s/lF0Z4C_2Gf9" method="POST" enctype="multipart/form-data">
+
+            <h1>Festa dos Tios</h1>
+            <h1>Confirme sua Presença!</h1>
+            <p>Estamos muito felizes em celebrar este dia especial com você.</p>
+            <input type="text" name="nome" placeholder="Digite seu nome">
+            <textarea id="mensagem" placeholder="Deixe uma mensagem para o aniversariante..." rows="4" name="duvidas"></textarea>
+            <button type="submit" onclick="confirmarPresenca()">Confirmar Presença </button>
+            <p id="mensagemConfirmacao"></p>
+        </form>
+    </div>
+
+    <script>
+
+        
+        function confirmarPresenca() {
+            var nome = document.getElementById("nome").value;
+            var mensagem = document.getElementById("mensagem").value;
+            var mensagemConfirmacao = document.getElementById("mensagemConfirmacao");
+
+            if (nome.trim() === "") {
+                mensagemConfirmacao.style.color = "red";
+                mensagemConfirmacao.textContent = "Por favor, insira seu nome.";
+            } else {
+                mensagemConfirmacao.style.color = "green";
+                mensagemConfirmacao.textContent = "Obrigado, " + nome + "! Sua presença foi confirmada.";
+
+                if (mensagem.trim() !== "") {
+                    mensagemConfirmacao.textContent += "\nSua mensagem: \"" + mensagem + "\" foi enviada.";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
